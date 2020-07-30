@@ -17,4 +17,4 @@ subdir('src/sensor')
 subdir('src/module')
 
 # Executable
-executable('dwmstatus', src_files, dependencies: [libmodule_dep, libstorage_usage_module_dep])
+executable('dwmstatus', src_files, dependencies: [libmodule_dep])
