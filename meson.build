@@ -13,6 +13,7 @@ libstring_buffer_dep = libutil_proj.get_variable('libstring_buffer_dep')
 
 ## Directory
 subdir('src/')
+subdir('src/sensor')
 
 # Executable
-executable('dwmstatus', src_files, dependencies: [libxmalloc_dep, libstring_buffer_dep])
+executable('dwmstatus', src_files, dependencies: [libstorage_sensor_dep])
