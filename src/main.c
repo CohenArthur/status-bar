@@ -1,19 +1,11 @@
 #include <stdio.h>
 
-#include "xmalloc.h"
-#include "string_buffer.h"
+#include "storage_sensor.h"
 
 int main(void) {
-    struct string_buffer *buff = string_buffer_new();
-    string_buffer_append_string(buff, "Hello World");
-    string_buffer_add_char(buff, '!');
-    string_buffer_add_char(buff, '!');
-    string_buffer_add_char(buff, '!');
+    struct statvfs info;
 
-    char *tmp = string_buffer_extract_string(buff);
-    printf("%s\n", tmp);
-
-    free(tmp);
+    storage_sensor_get_data("asdfasdasdf", &info);
 
     return 0;
 }
