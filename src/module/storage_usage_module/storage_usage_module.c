@@ -2,7 +2,7 @@
 
 #include "storage_sensor.h"
 
-#define GB 1024 * 1024 * 1024
+#define GB (1024.0 * 1024.0 * 1024.0)
 
 void storage_usage_module_init(void *state_ptr, void *param_ptr) {
     struct storage_usage_init_param *param = param_ptr;
@@ -12,11 +12,11 @@ void storage_usage_module_init(void *state_ptr, void *param_ptr) {
 }
 
 static float compute_total_space(struct statvfs *info) {
-    return (float)(info->f_blocks * info->f_frsize) / GB;
+    return (info->f_blocks * info->f_frsize) / GB;
 }
 
 static float compute_available_space(struct statvfs *info) {
-    return (float)(info->f_bfree * info->f_frsize) / GB;
+    return (info->f_bfree * info->f_frsize) / GB;
 }
 
 void storage_usage_module_update(void *state_ptr) {
