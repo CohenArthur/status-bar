@@ -1,0 +1,3 @@
+[submodule "subprojects/libutil"]
+	path = subprojects/libutil
+	url = https://github.com/08A/Util.git
