@@ -3,11 +3,16 @@ project('status-bar', 'c', default_options:['warning_level=3', 'werror=true'])
 
 ## Subproject
 libutil_proj = subproject('libutil')
-libutil_dep = libutil_proj.get_variable('libutil_dep')
-# libutil_includes = libutil_proj.get_variable('libutil_includes')
+
+### extrace all sub lib
+libxmalloc_dep = libutil_proj.get_variable('libxmalloc_dep')
+libspan_dep = libutil_proj.get_variable('libspan_dep')
+libvector_dep = libutil_proj.get_variable('libvector_dep')
+libpvector_dep = libutil_proj.get_variable('libpvector_dep')
+libstring_buffer_dep = libutil_proj.get_variable('libstring_buffer_dep')
 
 ## Directory
 subdir('src/')
 
 # Executable
-executable('dwmstatus', src_files, dependencies: [libutil_dep])
+executable('dwmstatus', src_files, dependencies: [libxmalloc_dep, libstring_buffer_dep])
